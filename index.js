@@ -1,19 +1,29 @@
 import fs from 'node:fs';
+import readline from 'node:readline';
 
-const content = "content";
 
-fs.appendFile('./list.txt', content, err => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log("content added");
-  }
-})
 
 fs.readFile('./list.txt', 'utf8', (err, data) => {
   if (err) {
     console.error(err);
     return;
   }
-  console.log(data);
+  console.log(`current data in .txt file: \n ${data}`);
 });
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+rl.question("", (content) => {
+  fs.appendFile('./list.txt',`${content} \n`, err => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log("content added");
+    }
+  });
+  rl.close();
+});
+
