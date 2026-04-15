@@ -1,8 +1,6 @@
 import fs from 'node:fs';
 import readline from 'node:readline';
 
-
-
 fs.readFile('./list.txt', 'utf8', (err, data) => {
   if (err) {
     console.error(err);
@@ -21,9 +19,8 @@ rl.question("", (content) => {
     if (err) {
       console.error(err);
     } else {
-      console.log("content added");
+      console.log('\x1b[32m', "content added", '\x1b[0m');
     }
   });
   rl.close();
 });
-
