@@ -30,5 +30,8 @@ rl.question("[a]dd or [d]el? \n", (answer) => {
     fs.writeFile('./list.txt', '', function(){
       console.log('\x1b[32m', "file cleared", '\x1b[0m')})
     rl.close();
+  } else {
+    console.log("nothing added or removed try running program again.")
+    rl.close();
   }
 });
