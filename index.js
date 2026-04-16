@@ -14,7 +14,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("add or del?", (answer) => {
+rl.question("add or del? \n", (answer) => {
   if (answer === "add") {
     rl.question("", (content) => {
       fs.appendFile('./list.txt',`${content} \n`, err => {
@@ -27,7 +27,8 @@ rl.question("add or del?", (answer) => {
       rl.close();
     });
   } else if (answer === "del") {
-    fs.writeFile('./list.txt', '', function(){console.log('\x1b[32m', "file cleared", '\x1b[0m')})
+    fs.writeFile('./list.txt', '', function(){
+      console.log('\x1b[32m', "file cleared", '\x1b[0m')})
   }
   rl.close();
 });
