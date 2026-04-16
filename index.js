@@ -14,13 +14,22 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("", (content) => {
-  fs.appendFile('./list.txt',`${content} \n`, err => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('\x1b[32m', "content added", '\x1b[0m');
-    }
-  });
+rl.question("add or del?", (answer) => {
+  if (answer === "add") {
+    rl.question("", (content) => {
+      fs.appendFile('./list.txt',`${content} \n`, err => {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log('\x1b[32m', "content added", '\x1b[0m');
+        }
+      });
+      rl.close();
+    });
+  } else if (answer === "del") {
+    fs.writeFile('./list.txt', '', function(){console.log('\x1b[32m', "file cleared", '\x1b[0m')})
+  }
   rl.close();
 });
+
+
