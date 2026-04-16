@@ -16,7 +16,7 @@ const rl = readline.createInterface({
 
 rl.question("[a]dd or [d]el? \n", (answer) => {
   if (answer === "a") {
-    rl.question("", (content) => {
+    rl.question("what do you want to add? \n", (content) => {
       fs.appendFile('./list.txt',`${content} \n`, err => {
         if (err) {
           console.error(err);
