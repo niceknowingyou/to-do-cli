@@ -28,10 +28,11 @@ rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
     });
   } else if (answer === "d") {
     fs.writeFile('./list.txt', '', function(){
-      console.log('\x1b[32m', "file cleared", '\x1b[0m')})
+      console.log('\x1b[32m', "file cleared", '\x1b[0m');
+    });
     rl.close();
   } else {
-    console.log("nothing added or removed try running program again.")
+    console.log("nothing added or removed try running program again.");
     rl.close();
   }
 });
