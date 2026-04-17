@@ -6,7 +6,7 @@ fs.readFile('./list.txt', 'utf8', (err, data) => {
     console.error(err);
     return;
   }
-  console.log(`current data in .txt file: \n ${data}`);
+  console.log(`current data in .txt file: \n`,"\x1b[33m",`${data}`,'\x1b[0m');
 });
 
 const rl = readline.createInterface({
@@ -14,7 +14,7 @@ const rl = readline.createInterface({
   output: process.stdout,
 });
 
-rl.question("[a]dd or [d]el? \n", (answer) => {
+rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
   if (answer === "a") {
     rl.question("what do you want to add? \n", (content) => {
       fs.appendFile('./list.txt',`${content} \n`, err => {
