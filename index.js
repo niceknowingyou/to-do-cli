@@ -3,7 +3,7 @@
 import fs from 'node:fs';
 import readline from 'node:readline';
 
-fs.readFile('/Users/n/repos/to-do-cli/list.txt', 'utf8', (err, data) => {
+fs.readFile('/home/oliver/repos/to-do-cli/list.txt', 'utf8', (err, data) => {
   if (err) {
     console.error(err);
     return;
