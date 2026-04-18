@@ -19,7 +19,7 @@ const rl = readline.createInterface({
 rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
   if (answer === "a") {
     rl.question("what do you want to add? \n", (content) => {
-      fs.appendFile('./list.txt',`${content} \n`, err => {
+      fs.appendFile('/home/oliver/repos/to-do-cli/list.txt',`${content} \n`, err => {
         if (err) {
           console.error(err);
         } else {
@@ -29,7 +29,7 @@ rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
       rl.close();
     });
   } else if (answer === "d") {
-    fs.writeFile('./list.txt', '', function(){
+    fs.writeFile('/home/oliver/repos/to-do-cli/list.txt', '', function(){
       console.log('\x1b[32m', "file cleared", '\x1b[0m');
     });
     rl.close();
