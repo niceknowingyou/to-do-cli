@@ -6,12 +6,19 @@ import readline from 'node:readline';
 const linuxPath = '/home/oliver/repos/to-do-cli/list.txt';
 const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
 
+let path = '';
+if (process.platform === 'win32') {
+  path = windowsPath;
+} else if (process.platform === 'linux') {
+  path = linuxPath;
+}
+
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
 });
 
-fs.readFile(windowsPath, 'utf8', (err, data) => {
+fs.readFile(path, 'utf8', (err, data) => {
   if (err) {
     console.error(err);
     return;
@@ -22,7 +29,7 @@ fs.readFile(windowsPath, 'utf8', (err, data) => {
 rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
   if (answer === "a") {
     rl.question("what do you want to add? \n", (content) => {
-      fs.appendFile(windowsPath,`${content} \n`, err => {
+      fs.appendFile(path,`${content} \n`, err => {
         if (err) {
           console.error(err);
         } else {
@@ -32,7 +39,7 @@ rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
       rl.close();
     });
   } else if (answer === "d") {
-    fs.writeFile(windowsPath, '', function(){
+    fs.writeFile(path, '', function(){
       console.log('\x1b[32m', "file cleared", '\x1b[0m');
     });
     rl.close();
