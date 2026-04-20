@@ -3,7 +3,15 @@
 import fs from 'node:fs';
 import readline from 'node:readline';
 
-fs.readFile('/home/oliver/repos/to-do-cli/list.txt', 'utf8', (err, data) => {
+const linuxPath = '/home/oliver/repos/to-do-cli/list.txt';
+const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+fs.readFile(windowsPath, 'utf8', (err, data) => {
   if (err) {
     console.error(err);
     return;
@@ -11,15 +19,10 @@ fs.readFile('/home/oliver/repos/to-do-cli/list.txt', 'utf8', (err, data) => {
   console.log(`current data in .txt file: \n`,"\x1b[33m",`${data}`,'\x1b[0m');
 });
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
 rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
   if (answer === "a") {
     rl.question("what do you want to add? \n", (content) => {
-      fs.appendFile('/home/oliver/repos/to-do-cli/list.txt',`${content} \n`, err => {
+      fs.appendFile(windowsPath,`${content} \n`, err => {
         if (err) {
           console.error(err);
         } else {
@@ -29,7 +32,7 @@ rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
       rl.close();
     });
   } else if (answer === "d") {
-    fs.writeFile('/home/oliver/repos/to-do-cli/list.txt', '', function(){
+    fs.writeFile(windowsPath, '', function(){
       console.log('\x1b[32m', "file cleared", '\x1b[0m');
     });
     rl.close();
