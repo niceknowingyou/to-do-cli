@@ -2,6 +2,7 @@
 
 import fs from 'node:fs';
 import readline from 'node:readline';
+import { addToList } from './addToList.js';
 
 const linuxPath = '/home/oliver/repos/to-do-cli/list.txt';
 const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
@@ -35,13 +36,7 @@ if (input === undefined) {
   rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
     if (answer === "a") {
       rl.question("what do you want to add? \n", (content) => {
-        fs.appendFile(path,`${content} \n`, err => {
-          if (err) {
-            console.error(err);
-          } else {
-            console.log('\x1b[32m', "content added", '\x1b[0m');
-          }
-        });
+        addToList(path, content);
         rl.close();
       });
     } else if (answer === "d") {
@@ -55,12 +50,6 @@ if (input === undefined) {
     }
   });
 } else {
-  fs.appendFile(path,`${joinedInput} \n`, err => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log('\x1b[32m', "content added", '\x1b[0m');
-    }
-  });
+  addToList(path, joinedInput);
   rl.close();
 }
