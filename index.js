@@ -27,7 +27,8 @@ fs.readFile(path, 'utf8', (err, data) => {
     console.error(err);
     return;
   }
-  console.log(`current data in .txt file: \n`,"\x1b[33m",`${data}`,'\x1b[0m');
+  console.log(`current data in .txt file:`,"\x1b[33m");
+  console.log(data,'\x1b[0m');
 });
 
 if (input === undefined) {

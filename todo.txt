@@ -1,1 +1,2 @@
 1. Space at the beginning of printed list.
+2. is it possible to make the whole list an array for easy deletion?
