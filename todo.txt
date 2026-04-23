@@ -1,3 +1,1 @@
-1. Right now the fast adding without going through the menu adds it like an array so like this:
-   "test1,test2,"
-2. Space at the beginning of printed list.
+1. Space at the beginning of printed list.

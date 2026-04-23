@@ -6,8 +6,9 @@ import readline from 'node:readline';
 const linuxPath = '/home/oliver/repos/to-do-cli/list.txt';
 const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
 const [,,input] = process.argv;
+const joinedInput = process.argv.slice(2).join(' ');
 
-console.log(input);
+console.log(joinedInput);
 
 let path = '';
 if (process.platform === 'win32') {
@@ -53,7 +54,7 @@ if (input === undefined) {
     }
   });
 } else {
-  fs.appendFile(path,`${process.argv.slice(2)} \n`, err => {
+  fs.appendFile(path,`${joinedInput} \n`, err => {
     if (err) {
       console.error(err);
     } else {
