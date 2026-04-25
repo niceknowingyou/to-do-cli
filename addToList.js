@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import readline from 'node:readline';
 
 export function addToList (rl, path, content) {
   fs.appendFile(path,`${content} \n`, err => {

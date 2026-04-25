@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-import readline from 'node:readline';
 import { addToList } from './addToList.js';
 
 export function menu (rl, path) {
