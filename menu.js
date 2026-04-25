@@ -5,7 +5,7 @@ export function menu (rl, path) {
   rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
     if (answer === "a") {
       rl.question("what do you want to add? \n", (content) => {
-        addToList(path, content);
+        addToList(rl, path, content);
         rl.close();
       });
     } else if (answer === "d") {
