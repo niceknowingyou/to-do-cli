@@ -2,12 +2,7 @@ import fs from 'node:fs';
 import readline from 'node:readline';
 import { addToList } from './addToList.js';
 
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-});
-
-export function menu (path) {
+export function menu (rl, path) {
   rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
     if (answer === "a") {
       rl.question("what do you want to add? \n", (content) => {

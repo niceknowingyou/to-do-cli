@@ -1,5 +1,3 @@
 item 1 
-item 1 
-item 
-item 1 
-hej 
+item 2 
+item 3 

@@ -10,6 +10,10 @@ const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
 const [,,input] = process.argv;
 const joinedInput = process.argv.slice(2).join(' ');
 
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
 
 // console.log(joinedInput);
 
@@ -23,7 +27,7 @@ if (process.platform === 'win32') {
 printContent(path);
 
 if (input === undefined) {
-  menu(path);
+  menu(rl, path);
 } else {
-  addToList(path, joinedInput);
+  addToList(rl, path, joinedInput);
 }
