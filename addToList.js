@@ -6,7 +6,6 @@ export function addToList (rl, path, content) {
       console.error(err);
     } else {
       console.log('\x1b[32m', "content added", '\x1b[0m');
-      rl.close();
     }
   });
 }
