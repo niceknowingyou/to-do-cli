@@ -10,7 +10,8 @@ export function menu (rl, path) {
       });
     } else if (answer === "d") {
       fs.writeFile(path, '', function(){
-        console.log('\x1b[32m', "file cleared", '\x1b[0m');
+        console.log('\x1b[32m');
+        console.log("file cleared", '\x1b[0m');
       });
       rl.close();
     } else {

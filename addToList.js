@@ -5,8 +5,10 @@ export function addToList (rl, path, content) {
     if (err) {
       console.error(err);
     } else {
-      console.log('\x1b[32m', "content added", '\x1b[0m');
+      console.log('\x1b[32m');
+      console.log("content added", '\x1b[0m');
     }
+    process.exit();
   });
 }
 
