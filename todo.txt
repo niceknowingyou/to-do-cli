@@ -1,2 +1,1 @@
-1. is it possible to make the whole list an array for easy deletion?
-2. space infront of "content added"
+1. move from list.txt to a JSON file? might behave sort of like an array of items.
