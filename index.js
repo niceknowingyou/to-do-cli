@@ -4,6 +4,7 @@ import readline from 'node:readline';
 import { addToList } from './addToList.js';
 import { menu } from './menu.js';
 import { printContent } from './printContent.js';
+import jsonFile from './list.json' with { type: 'json' };
 
 const linuxPath = '/home/oliver/repos/to-do-cli/list.txt';
 const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
@@ -31,3 +32,5 @@ if (input === undefined) {
 } else {
   addToList(rl, path, joinedInput);
 }
+
+console.log(jsonFile);
