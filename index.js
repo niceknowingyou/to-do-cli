@@ -33,4 +33,4 @@ if (input === undefined) {
   addToList(rl, path, joinedInput);
 }
 
-console.log(jsonFile);
+console.log(jsonFile.person.name);
