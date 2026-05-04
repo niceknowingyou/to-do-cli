@@ -5,6 +5,8 @@ import { addToList } from './addToList.js';
 import { menu } from './menu.js';
 import { printContent } from './printContent.js';
 import jsonFile from './list.json' with { type: 'json' };
+import fs from 'node:fs';
+import { addToJson } from './addToJson.js';
 
 const linuxPath = '/home/oliver/repos/to-do-cli/list.txt';
 const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
@@ -25,12 +27,16 @@ if (process.platform === 'win32') {
   path = linuxPath;
 }
 
-printContent(path);
+// printContent(path);
 
-if (input === undefined) {
+/* 
+  if (input === undefined) {
   menu(rl, path);
 } else {
   addToList(rl, path, joinedInput);
 }
+*/
 
-console.log(jsonFile.person.name);
+console.log(jsonFile);
+addToJson(rl, './list.json', joinedInput);
+console.log(jsonFile);
