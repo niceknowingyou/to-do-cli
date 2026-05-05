@@ -7,4 +7,5 @@ export function addToJson(path, updatedJson) {
   } catch (err) {
     console.error(err);
   }
+  process.exit();
 }

@@ -45,7 +45,5 @@ if (input === undefined) {
   process.exit();
   //  addToList(rl, path, joinedInput);
 }
-
-
 // jsonFile.list.splice(joinedInput,1);
 
