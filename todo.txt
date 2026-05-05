@@ -1,1 +1,1 @@
-fs.writefile för json fil varje gång den ändras
+1. Add feature for removing all content (writing over the whole file) should be very easy to implement. 
