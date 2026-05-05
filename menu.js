@@ -13,8 +13,13 @@ export function menu (rl, path) {
         addToJson("list.json", updatedJson);
       });
     } else if (answer === "d") {
-      //code for deleting something
-      process.exit();
+      rl.question("what item(number) do you want to delete? \n", (number) => {
+        let data = fs.readFileSync("list.json");
+        let myJsonList = JSON.parse(data);
+        myJsonList.list.splice(number,1);
+        let updatedJson = JSON.stringify(myJsonList);
+        addToJson("list.json", updatedJson);
+      });
     } else {
       console.log("nothing added or removed try running program again.");
       process.exit();

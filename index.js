@@ -7,6 +7,7 @@ import { printContent } from './printContent.js';
 import jsonFile from './list.json' with { type: 'json' };
 import fs from 'node:fs';
 import { addToJson } from './addToJson.js';
+import { printJson } from './printJson.js';
 
 const linuxPath = '/home/oliver/repos/to-do-cli/list.txt';
 const windowsPath = '/Users/n/repos/to-do-cli/list.txt';
@@ -28,7 +29,7 @@ if (process.platform === 'win32') {
 }
 
 // printContent(path);
-
+printJson();
 
 if (input === undefined) {
   menu(rl, path);
