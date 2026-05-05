@@ -1,1 +1,1 @@
-1. move from list.txt to a JSON file? might behave sort of like an array of items.
+fs.writefile för json fil varje gång den ändras
