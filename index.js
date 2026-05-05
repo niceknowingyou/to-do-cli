@@ -29,37 +29,22 @@ if (process.platform === 'win32') {
 
 // printContent(path);
 
-/* 
-  if (input === undefined) {
+
+if (input === undefined) {
   menu(rl, path);
 } else {
-  addToList(rl, path, joinedInput);
+
+  let data = fs.readFileSync("list.json");
+  let myJsonList = JSON.parse(data);
+  myJsonList.list.push(joinedInput);
+  let updatedJson = JSON.stringify(myJsonList);
+
+  addToJson("list.json", updatedJson);
+  console.log(updatedJson);
+  process.exit();
+  //  addToList(rl, path, joinedInput);
 }
-*/
+
 
 // jsonFile.list.splice(joinedInput,1);
-let data = fs.readFileSync("list.json");
-let myJsonList = JSON.parse(data);
-myJsonList.list.push(joinedInput);
 
-let updatedJson = JSON.stringify(myJsonList);
-/*
-fs.writeFile("list.json", updatedJson, err => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log("file written sucessfully");
-  }
-});
-*/
-/*
-try {
-  fs.writeFileSync("list.json", updatedJson);
-  console.log("success")
-} catch (err) {
-  console.error(err);
-}
-*/
-addToJson("list.json", updatedJson);
-console.log(updatedJson);
-process.exit();
