@@ -52,11 +52,14 @@ fs.writeFile("list.json", updatedJson, err => {
   }
 });
 */
+/*
 try {
   fs.writeFileSync("list.json", updatedJson);
   console.log("success")
 } catch (err) {
   console.error(err);
 }
+*/
+addToJson("list.json", updatedJson);
 console.log(updatedJson);
 process.exit();
