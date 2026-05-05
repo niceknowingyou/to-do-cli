@@ -37,6 +37,6 @@ if (process.platform === 'win32') {
 }
 */
 
+jsonFile.list.splice(joinedInput,1);
 console.log(jsonFile);
-addToJson(rl, './list.json', joinedInput);
-console.log(jsonFile);
+process.exit();
