@@ -41,7 +41,9 @@ if (process.platform === 'win32') {
 let data = fs.readFileSync("list.json");
 let myJsonList = JSON.parse(data);
 myJsonList.list.push(joinedInput);
+
 let updatedJson = JSON.stringify(myJsonList);
+/*
 fs.writeFile("list.json", updatedJson, err => {
   if (err) {
     console.error(err);
@@ -49,5 +51,12 @@ fs.writeFile("list.json", updatedJson, err => {
     console.log("file written sucessfully");
   }
 });
-console.log(myJsonList);
+*/
+try {
+  fs.writeFileSync("list.json", updatedJson);
+  console.log("success")
+} catch (err) {
+  console.error(err);
+}
+console.log(updatedJson);
 process.exit();
