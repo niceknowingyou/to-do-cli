@@ -3,17 +3,17 @@ import { addToJson } from './addToJson.js';
 import jsonFile from './list.json' with { type: 'json' };
 
 export function menu (rl, path) {
-  rl.question("[a]dd, [d]el or cancel [any key]? \n", (answer) => {
+  rl.question('[a]dd, [d]el or cancel [any key]? \n', (answer) => {
     if (answer === "a") {
-      rl.question("what do you want to add? \n", (content) => {
+      rl.question('what do you want to add? \n', (content) => {
         let data = fs.readFileSync(path);
         let myJsonList = JSON.parse(data);
         myJsonList.list.push(content);
         let updatedJson = JSON.stringify(myJsonList);
         addToJson(path, updatedJson);
       });
-    } else if (answer === "d") {
-      rl.question("what item(number) do you want to delete? \n", (number) => {
+    } else if (answer === 'd') {
+      rl.question('what item(number) do you want to delete? \n', (number) => {
         let data = fs.readFileSync(path);
         let myJsonList = JSON.parse(data);
         myJsonList.list.splice(number,1);
@@ -21,7 +21,7 @@ export function menu (rl, path) {
         addToJson(path, updatedJson);
       });
     } else {
-      console.log("nothing added or removed try running program again.");
+      console.log('nothing added or removed try running program again.');
       process.exit();
     }
   });

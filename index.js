@@ -31,7 +31,7 @@ if (process.platform === 'win32') {
 }
 
 // printContent(path);
-printJson(path);
+
 
 if (input === undefined) {
   menu(rl, path);
@@ -48,4 +48,4 @@ if (input === undefined) {
   //  addToList(rl, path, joinedInput);
 }
 // File.list.splice(joinedInput,1);
-
+printJson(path);
